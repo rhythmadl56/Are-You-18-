@@ -59,20 +59,44 @@
     </div>
 
     <script>
-        function rickroll() {
-            document.getElementById("main").innerHTML = `
-        <video autoplay loop style="position:fixed;top:0;left:0;width:100%;height:100%;">
-    <source src="rickroll.mp4" type="video/mp4">
-</video>
+function rickroll() {
+    document.getElementById("main").innerHTML = `
+        <div style="
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:black;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:30px;
+            flex-direction:column;
+        ">
+            <p>Verifying your age...</p>
+            <p style="font-size:18px; opacity:0.7;">Please wait</p>
+        </div>
     `;
 
-            // Try fullscreen (may not work on all browsers)
-            const elem = document.documentElement;
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            }
+    setTimeout(() => {
+        document.body.innerHTML = `
+            <video autoplay loop id="vid" style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+                <source src="rickroll.mp4" type="video/mp4">
+            </video>
+        `;
+
+        const video = document.getElementById("vid");
+        video.play();
+
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
         }
-    </script>
+
+    }, 1500); 
+}
+</script>
 
 </body>
 
