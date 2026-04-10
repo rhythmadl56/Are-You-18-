@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Age Verification</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #111;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .yes {
+            background: green;
+            color: white;
+        }
+
+        .no {
+            background: red;
+            color: white;
+        }
+
+        iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="main">
+        <h1>Are you 18 or above?</h1>
+        <button class="yes" onclick="rickroll()">Yes (18+)</button>
+        <button class="no" onclick="rickroll()">No (Under 18)</button>
+    </div>
+
+    <script>
+        function rickroll() {
+            document.getElementById("main").innerHTML = `
+        <video autoplay loop style="position:fixed;top:0;left:0;width:100%;height:100%;">
+    <source src="rickroll.mp4" type="video/mp4">
+</video>
+    `;
+
+            // Try fullscreen (may not work on all browsers)
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
